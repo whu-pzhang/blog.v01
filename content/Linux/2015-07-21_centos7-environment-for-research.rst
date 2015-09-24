@@ -3,7 +3,7 @@
 
 :author: pzhang
 :date: 2015-07-20
-:modified: 
+:modified:
 :category: Linux
 :tags: CentOS, 安装
 :slug: centos7-environment-for-research
@@ -171,11 +171,11 @@ ELRepo
 
 在synaptics manpage里面列出的所有参数都可以通过synclient进行配置.下面命令列出了一个完整的用户设置的清单：
 ::
-    
+
     $ synclient -l
 
 所有列出的参数都可以用synclient进行配置，比如::
-    
+
     $ synclient VertEdgeScroll=1 # 启用边缘垂向滚动
     $ synclient PalmDetect=1 # 启用手掌检测
 
@@ -345,7 +345,7 @@ Python2与Python3之间是不完全兼容的，而我以Python3为主，所以�
 .. code-block:: bash
 
     sudo yum install "@Chinese Support"
-    sudo yum install ibus ibus-pinyin
+    sudo yum install ibus ibus-libpinyin
     sudo yum install libpinyin
 
 然后在区域键盘中选择汉语拼音。
@@ -356,7 +356,7 @@ Python2与Python3之间是不完全兼容的，而我以Python3为主，所以�
 编辑器
 ------
 
-#. vim 
+#. vim
 #. sublime text 3
 
 IDE
@@ -399,8 +399,8 @@ WPS Office
 .. code-block:: bash
 
     $ sudo yum install wps-office-9.1.0.4975-1.a19p1.x86_64.rpm
-    $ sudo yum install wps-office-fonts-1.0-1.noarch.rpm 
-    
+    $ sudo yum install wps-office-fonts-1.0-1.noarch.rpm
+
 完成后，在“Application”中可以找到相关项。
 
 PS/PDF阅读器
@@ -436,11 +436,7 @@ TeXLive 2015
 
 系统是自带了TeXLive，版本较老，还是安装最新版比较好。
 
-根据\ ``Linux下安装TeXLive``\ 一文，从ISO文件中安装TeXLive。
-
-安装完成后，更新所有模块::
-
-    tlmgr update --all
+根据 `TeXLive2015安装 <{filename}../Programming/2015-09-24_install-texlive2015.rst>`_ 一文，从ISO文件中安装TeXLive。
 
 Mendeley
 --------
