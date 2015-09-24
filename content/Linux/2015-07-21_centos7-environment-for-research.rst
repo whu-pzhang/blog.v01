@@ -342,58 +342,6 @@ Python2与Python3之间是不完全兼容的，而我以Python3为主，所以�
 中文输入法
 ============
 
-.. 添加mosquito-myrepo源
-.. ----------------------
-
-.. mosquito-myrepo是一个私人制作的第三方源，其中包含了fcitx输入法。
-
-.. * 项目地址： https://github.com/1dot75cm/myrepo
-.. * 支持的发行版： Fedora 19/20/21/rawhide 以及RHEL/CentOS 7
-
-.. ::
-
-..     sudo yum-config-manager --add-repo=https://copr.fedoraproject.org/coprs/mosquito/myrepo/repo/epel-7/mosquito-myrepo-epel-7.repo
-
-.. 可以选择安装下面各种输入法中的一个或多个::
-
-..     sudo yum install fcitx-googlepinyin fcitx-cloudpinyin # 谷歌拼音输入法
-..     sudo yum install fcitx-rime fcitx-cloudpinyin # 中州韵输入法
-..     sudo yum install fcitx-libpinyin fcitx-cloudpinyin # libpinyin输入法
-..     sudo yum install fcitx-sunpinyin sunpinyin-data fcitx-cloudpinyin # sunpinyin输入法
-
-.. 由于mosquito-myrepo在不断地支持更多的软件，这也进一步造成该repo中的软件与base、EPEL中的软件存在
-.. 版本冲突，在该repo的项目主页中建议安装yum的优先级插件\ ``yum-plugin-priorities``\，
-.. 这在一定程度上会缓解版本冲突问题，但无法从根本上避免。
-
-.. 鉴于多个repo的版本冲突会造成一些麻烦，最好的办法还是在安装完需要的软件之后就禁用该repo，需要的时候再启用。
-
-.. 编辑\ ``/etc/yum.repos.d/mosquito-myrepo-epel-7.repo``\，将其中的\ ``enable=1``\改成
-.. \ ``enable=0``\即可。
-
-.. 配置
-.. -----------
-
-.. 在系统 Applications -> Other 里找到 fictx Configuration
-
-.. 这一步可能会遇到::
-
-..     You're currently running Fcitx with GUI, but fcitx-configtool couldn't be found, the package name is usually fcitx-config-gtk ....
-
-.. 这样的提示，我们只需安装\ ``fictx-configtool``\即可
-
-.. .. code-block:: bash
-
-..     $ sudo yum -y install fictx-configtool
-
-.. 然后再打开fictx Configuration把安装好的pinyin输入法添加到输入法中。
-
-.. 首先关闭gnome-shell 对键盘的监听，然后切换输入法为fcitx:
-
-.. .. code-block:: bash
-
-..     $ gsettings set org.gnome.settings-daemon.plugins.keyboard active false
-..     $ imsettings-switch fcitx
-
 .. code-block:: bash
 
     sudo yum install "@Chinese Support"
