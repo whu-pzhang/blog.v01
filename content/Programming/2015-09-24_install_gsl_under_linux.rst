@@ -98,7 +98,7 @@ gsl 安装得到的是一个单一库文件 \ ``libgsl.a``\，shared libraray \ 
 实例
 =======
 
-计算x=5时的贝塞尔函数J0(x)的值
+计算x=5时的贝塞尔函数\ :math:`J_0(x)`\的值
 
 .. code-block:: C
 
