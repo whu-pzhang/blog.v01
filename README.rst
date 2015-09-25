@@ -7,7 +7,7 @@ This is my personal blog. It's set up at my local PC.
 
 The purpose of the blog is to write down my experiences and study notes.
 
-**Acknowladge: It is inspired by `Seisman`_ !** 
+Acknowladge: It is inspired by `Seisman`_ ! 
 
 - Website: http://pzhang.note
 - Markup Language: `reStructuredText`_
