@@ -283,6 +283,24 @@ Clang可以认为是GCC的替代品，可以用于编译C、C++、Objective-C和
     sudo yum install clang             # clang编译器
     sudo yum install clang-analyzer    # clang静态分析器
 
+并行环境
+============
+
+mpich
+-----------
+
+安装mpich
+
+::
+
+    sudo yum install mpich mpich-devel
+
+安装后，二进制文件位于 \ ``/usr/lib64/mpich/bin``\中，动态库位于\ ``/usr/lib64/mpich/lib``\下，需要在 \ ``.bashrc``\ 中添加以下语句:
+
+::
+
+    export PATH=${PATH}:/usr/lib64/mpich/bin/
+    module load mpi/mpich-x86_64
 
 脚本语言环境
 ============
