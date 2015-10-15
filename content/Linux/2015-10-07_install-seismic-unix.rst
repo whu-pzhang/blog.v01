@@ -85,10 +85,11 @@ Seismic_Unix 是科罗拉多矿业大学开发的一个地震数据处理的软�
 
     $ sudo mv src /opt/cwp/
     $ cd /opt/cwp/src
-    $ sudo make install
-    $ sudo make xtinstall
-    $ sudo make finstall
-    $ sudo make mglinstall
+    $ su
+    # make install
+    # make xtinstall
+    # make finstall
+    # make mglinstall
     
 至此 SU 已安装完成。
 
