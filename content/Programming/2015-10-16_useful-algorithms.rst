@@ -98,9 +98,8 @@ Python版
 参考
 ========
 
-
-- `How to tell if a Linux system is big endian or little endian? <http://serverfault.com/questions/163487/how-to-tell-if-a-linux-system-is-big-endian-or-little-endian>`_
-- `Ten Ways to Check if an Integer Is a Power Of Two in C <http://www.exploringbinary.com/ten-ways-to-check-if-an-integer-is-a-power-of-two-in-c/>`_
+#. `How to tell if a Linux system is big endian or little endian? <http://serverfault.com/questions/163487/how-to-tell-if-a-linux-system-is-big-endian-or-little-endian>`_
+#. `Ten Ways to Check if an Integer Is a Power Of Two in C <http://www.exploringbinary.com/ten-ways-to-check-if-an-integer-is-a-power-of-two-in-c/>`_
 
 
 
