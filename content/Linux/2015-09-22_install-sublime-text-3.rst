@@ -46,6 +46,7 @@ Sublime Text 3作为一款跨平台的编辑器，支持多种插件，语法高
 将\ ``Exec``\和\ ``Icon``\这项改为：
 
 ::
+
     Exec=/opt/sublime_text_3/sublime_text
     Icon=/opt/sublime_text_3/Icon/48x48/sublime-text.png
 
@@ -71,6 +72,9 @@ Sublime Text 3作为一款跨平台的编辑器，支持多种插件，语法高
 
 管理插件最简单的方法就是安装包管理器。
 
+安装
+-------
+
 - **自动安装**
 
   - 组合键 \ ``ctrl+```\或者 \ ``View > Show Console``\打开控制台，输入以下 Python 代码
@@ -88,12 +92,18 @@ Sublime Text 3作为一款跨平台的编辑器，支持多种插件，语法高
   - 进入 Installed Packages 文件夹
   - 下载 \ `Package Control.sublime-package <https://packagecontrol.io/Package%20Control.sublime-package>`_\ 至该文件夹
   - 重启 Sublime Text 3
+  
+使用
+----------
+
+组合键 \ ``Ctrl+Shift+P``\打开包管理器，输入\ ``PCI``\即可搜索安装插件包
 
 常用插件
 ---------
 
 - IMESupport: 解决中文输入框不跟随的问题
 - Monokai Extended: 增强的Monokai主题
+- MinimalFortran: Fortran语法高亮
 
 
 参考
