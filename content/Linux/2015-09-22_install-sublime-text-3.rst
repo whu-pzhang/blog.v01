@@ -37,13 +37,19 @@ Sublime Text 3作为一款跨平台的编辑器，支持多种插件，语法高
     
     $ sudo cp /opt/sublime_text_3/sublime_text.desktop /usr/share/applications/
 
-修改该文本，将\ ``Icon``\这项改为：
+修改该文本:
 
 ::
 
-    Icon=/opt/sublime_text_3/Icon/48x48/sublime_text.png
+    $ sudo vi /usr/share/applications/sublime_text.desktop
 
-其他的例如 \ ``Exec=/opt/sublime_text/sublime_text``\可以根据自己的安装目录来修改。
+将\ ``Exec``\和\ ``Icon``\这项改为：
+
+::
+    Exec=/opt/sublime_text_3/sublime_text
+    Icon=/opt/sublime_text_3/Icon/48x48/sublime-text.png
+
+其他的可以根据自己需求来修改。
 
 修改完成后即可在 \ ``Gnome应用程序 > 编程``\ 中找到 sublime
 
