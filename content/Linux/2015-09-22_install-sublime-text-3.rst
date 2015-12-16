@@ -22,19 +22,19 @@ Sublime Text 3作为一款跨平台的编辑器，支持多种插件，语法高
 - 下载完成解压到\ ``opt``\目录下
 
 ::
-    
+
     $ sudo tar jxvf sublime_text_3_build_3083_x64.tar.bz2 -C /opt/
 
 - 然后建立软连接到 \ ``/usr/bin/``\目录下以便可以在终端启动
 
 ::
-    
+
     $ sudo ln -s /opt/sublime_text_3/sublime_text /usr/bin/sublime
 
 - 加入应用程序列表：
 
 ::
-    
+
     $ sudo cp /opt/sublime_text_3/sublime_text.desktop /usr/share/applications/
 
 修改该文本:
@@ -65,6 +65,38 @@ Sublime Text 3作为一款跨平台的编辑器，支持多种插件，语法高
 ::
 
     text/plain=sublime.desktop;
+
+
+基础设置
+============
+
+sublime text 3自带的配置已经可以用了，加上自己的一些设置会更好。
+
+其设置方式为：
+
+\ ``Preferences-->Settings-User``\ 打开配置文件，配置文件是以Python字典的格式存在的。
+
+以下为个人的一些设置，每个选项的值可以在\ ``Preferences-->Settings-Default``\中查看
+
+.. code-block:: Python
+
+    {
+        "color_scheme": "Packages/Monokai Extended/Monokai Extended.tmTheme",   # 安装Monokai Extended后的主题设置
+        "default_line_ending": "unix",                      # 以UNIX格式的"\n"为行结尾，而不是doc的 "\r\n"
+        "font_face": "Yahei Consolas Hybrid",               # 字体设置
+        "font_size": 13,                                    # 字号
+        "highlight_line": true,
+        "ignored_packages":
+        [
+        ],
+        "line_padding_bottom": 1,
+        "line_padding_top": 1,
+        "show_encoding": true,                              # 状态栏显示编码
+        "show_line_endings": true,
+        "tab_size": 4,                                      # tabwidth: 4个空格
+        "translate_tabs_to_spaces": true,
+        "vintage_ctrl_keys": true
+    }
 
 
 插件管理
