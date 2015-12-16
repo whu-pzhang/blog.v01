@@ -19,6 +19,11 @@
    * - `Don L. Anderson <http://www.mantleplumes.org/DLA.html>`_
      -
 
+   * - **B**
+     -
+   * - `Norman Bleistein <http://www.cwp.mines.edu/~norm/>`_
+     -
+
    * - **C**
      -
    * - `Andrew Curtis <http://www.geos.ed.ac.uk/homes/acurtis/>`_
@@ -39,9 +44,9 @@
      -
    * - `Yu Jeffrey Gu <http://www.ualberta.ca/~ygu/>`_
      -
+
    * - **H**
      -
-
    * - `Donald V. Helmberger <http://www.gps.caltech.edu/content/donald-v-helmberger>`_
      -
    * - `Kei Hirose <http://www.geo.titech.ac.jp/lab/hirose/en/home.html>`_
