@@ -27,15 +27,23 @@ Seismic_Unix 是科罗拉多矿业大学开发的一个地震数据处理的软�
 安装
 ======
 
+官方安装说明有7个基本步骤，其中第二步是这么一段话
+
+    **don't install as 'root' (the superuser) (It is possible to damage a system's file structure if the install is not done properly.)**
+
+因此，我们就将Seismic_Unix安装到自己的HOME目录下，而不是通常的 /opt或者/usr/local下。
+
+安装步骤按照说明来基本就可以了。
+
 添加环境变量
 ----------------
 
 .. code-block:: bash
 
-    $ echo "export CWPROOT=/opt/cwp/" >> ~/.bashrc
+    $ echo "export CWPROOT=$HOME/cwp/" >> ~/.bashrc
     $ echo "export PATH=${PATH}:${CWPROOT}/bin" >> ~/.bashrc
     $ exec $SHELL
-    
+
 解压和配置
 -----------
 
@@ -79,18 +87,17 @@ Seismic_Unix 是科罗拉多矿业大学开发的一个地震数据处理的软�
 正式安装
 --------
 
-将src文件夹移动到\ ``CWPROOT``\,即 \ ``/opt/cwp/``\
+将src文件夹移动到\ ``CWPROOT``\,即 \ ``/home/pzhang/cwp/``\
 
 .. code-block:: bash
 
-    $ sudo mv src /opt/cwp/
-    $ cd /opt/cwp/src
-    $ su
-    # make install
-    # make xtinstall
-    # make finstall
-    # make mglinstall
-    
+    $ mv src /opt/cwp/
+    $ cd $CWPROOT/src
+    $ make install      # essential
+    $ make xtinstall    # essential
+    $ make finstall     # nonessential
+    $ make utils        # nonessential
+
 至此 SU 已安装完成。
 
 测试
@@ -110,5 +117,6 @@ Seismic_Unix 是科罗拉多矿业大学开发的一个地震数据处理的软�
 参考
 =======
 
-- `安装seismic unix（SU）软件 <http://blog.sina.com.cn/s/blog_4a7322eb0101bsm1.html>`_                           
+- `Installation_Instructions <http://www.cwp.mines.edu/cwpcodes/Installation_Instructions>`_
+- `安装seismic unix（SU）软件 <http://blog.sina.com.cn/s/blog_4a7322eb0101bsm1.html>`_
 
