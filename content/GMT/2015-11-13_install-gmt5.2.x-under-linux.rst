@@ -114,20 +114,21 @@ GMT5的依赖包，相对来说要复杂很多：
 安装GMT
 =======
 
-将之前下载的三个压缩文件以及四个PDF文档都放在同一个目录里，以下假定目录名为 ``/home/seisman/Desktop/GMT`` ：
+将之前下载的三个压缩文件以及四个PDF文档都放在同一个目录里，以下假定目录名为 ``/home/pzhang/Desktop/GMT`` ：
 
 .. code-block:: bash
 
-   # 当前目录名为 /home/seisman/Desktop/GMT
+   # 当前目录名为 /home/pzhang/Desktop/GMT
    $ pwd
-   /home/seisman/Desktop/GMT
-
+   /home/pzhang/Desktop/GMT
+   
    # 当前目录下包含了三个压缩文件和四个PDF文档
    $ ls
    dcw-gmt-1.1.2.tar.gz  gmt-5.2.1-src.tar.gz  gshhg-gmt-2.3.4.tar.gz
    GMT_API.pdf  GMT_Docs.pdf  GMT_Manpages.pdf  GMT_Tutorial.pdf
 
    # 解压三个压缩文件
+   $ for i in *tar.gz; do tar zxvf $i; done
    $ tar -xvf gmt-5.2.1-src.tar.gz
    $ tar -xvf gshhg-gmt-2.3.4.tar.gz
    $ tar -xvf dcw-gmt-1.1.2.tar.gz
@@ -180,7 +181,7 @@ GMT5的依赖包，相对来说要复杂很多：
           set (GMT_INSTALL_MODULE_LINKS FALSE)
           set (GSHHG_ROOT "/home/seisman/Datas/gshhg-gmt-2.3.4")
           set (COPY_GSHHG FALSE)
-          set (DCW_ROOT "/home/seisman/Datas/dcw-gmt-1.1.1")
+          set (DCW_ROOT "/home/seisman/Datas/dcw-gmt-1.1.2")
           set (COPY_DCW FALSE)
           set (GMT_USE_THREADS TRUE)
 
@@ -193,8 +194,8 @@ GMT5的依赖包，相对来说要复杂很多：
 ``cmake ..`` 会检查GMT对软件的依赖关系，我的检查结果如下::
 
     *  Options:
-    *  Found GSHHG database       : /home/seisman/Desktop/GMT/gmt-5.2.1/share/gshhg (2.3.4)
-    *  Found DCW-GMT database     : /home/seisman/Desktop/GMT/gmt-5.2.1/share/dcw-gmt
+    *  Found GSHHG database       : /home/pzhang/Datas/GMT/gshhg-gmt-2.3.4 (2.3.4)
+    *  Found DCW-GMT database     : /home/pzhang/Datas/GMT/dcw-gmt-1.1.2
     *  NetCDF library             : /usr/lib64/libnetcdf.so
     *  NetCDF include dir         : /usr/include
     *  GDAL library               : /usr/lib64/libgdal.so

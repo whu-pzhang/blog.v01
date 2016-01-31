@@ -120,6 +120,15 @@ GMT4中的 ``xgridedit`` 命令是一个很简易的带GUI的网格文件编辑�
    $ tar -xvf gshhg-gmt-2.3.4.tar.gz
    $ sudo mv gshhg-gmt-2.3.4 /opt/GMT-4.5.14/share/coast
 
+若是存在多个版本的GMT，可以不用将海岸线数据复制到coast目录中，以免造成有多份海岸线数据。
+这时可以直接将现有数据链接过去
+
+.. code-block:: bash
+
+    $ cd /opt/GMT-4.5.14/share
+    # 建立软链接，避免数据冗余
+    $ sudo ln -s /home/pzhang/Datas/GMT/gshhg-gmt-2.3.4 coast
+
 
 修改环境变量
 ------------
