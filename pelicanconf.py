@@ -195,7 +195,7 @@ CSS_FILE = 'main.css'
 # Theme options
 SITE_DESCRIPTION = '个人科研学习笔记'
 SITE_LICENSE = '2015-2016 Copyright &copy; by <a href="http://pzhang.note">PzNote</a>; Licensed under <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a>'
-SITESUBTITLE = '整理自己的经验是科研的第一步。'
+SITESUBTITLE = 'Explicit is better than implicit.'
 FEATURED_IMAGE = SITEURL + '/theme/images/apple-touch-icon-152x152.png'
 RECENT_ARTICLES_COUNT = 15
 USE_SHORTCUT_ICONS = True
