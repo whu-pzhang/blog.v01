@@ -172,16 +172,16 @@ GMT5的依赖包，相对来说要复杂很多：
           $ cd /opt/GMT-5.2.1/share
           $ sudo rm -r coast/
           $ sudo rm -r dcw/
-          $ sudo ln -s /home/seisman/Datas/gshhg-gmt-2.3.4 gshhg
-          $ sudo ln -s /home/seisman/Datas/dcw-gmt-1.1.2 dcw
+          $ sudo ln -s /home/pzhang/Datas/GMT/gshhg-gmt-2.3.4 gshhg
+          $ sudo ln -s /home/pzhang/Datas/GMT/dcw-gmt-1.1.2 dcw
 
    #. 设置配置文件如下::
 
           set (CMAKE_INSTALL_PREFIX "/opt/GMT-5.2.1")
           set (GMT_INSTALL_MODULE_LINKS FALSE)
-          set (GSHHG_ROOT "/home/seisman/Datas/gshhg-gmt-2.3.4")
+          set (GSHHG_ROOT "/home/pzhang/Datas/GMT/gshhg-gmt-2.3.4")
           set (COPY_GSHHG FALSE)
-          set (DCW_ROOT "/home/seisman/Datas/dcw-gmt-1.1.2")
+          set (DCW_ROOT "/home/pzhang/Datas/GMT/dcw-gmt-1.1.2")
           set (COPY_DCW FALSE)
           set (GMT_USE_THREADS TRUE)
 
