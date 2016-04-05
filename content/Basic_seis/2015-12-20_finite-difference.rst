@@ -59,7 +59,12 @@ Fdelmodc软件包安装及使用
 
     $ tar zxvf OpenSourceAll.tgz
 
+<<<<<<< HEAD
 得到文件夹\ ``OpenSource``\ ，我选择的是将其放到\ ``$HOME``\ 目录下以便翻阅。::
+=======
+得到文件夹\ ``OpenSource``\ ，我选择的是将其放到\ ``$HOME``\ 目录下以便翻阅
+::
+>>>>>>> 215929f12f310af960d8dd459fc40f250831504b
 
     $ mv OpenSource ~/
     $ cd ~/OpenSource
