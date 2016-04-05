@@ -153,7 +153,7 @@ REVERSE_CATEGORY_ORDER = False
 PLUGIN_PATHS = ['plugins', ]
 PLUGINS = [
     'assets',               # 压缩CSS JS
-#    'render_math',          # 支持数学公式渲染
+    'render_math',          # 支持数学公式渲染
     'extract_toc',          # 将toc从content提取出来，单独处理
     'neighbors',
     'related_posts',        # 相关文章,根据tags判断的
@@ -187,7 +187,7 @@ SITEMAP = {
 
 
 # # Theme
-THEME = "themes/Elegant"
+THEME = "themes/elegant"
 THEME_STATIC_DIR = 'theme'
 THEME_STATIC_PATHS = ['static']
 CSS_FILE = 'main.css'
