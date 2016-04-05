@@ -10,7 +10,7 @@ TYPOGRIFY = True
 TYPOGRIFY_IGNORE_TAGS = []
 
 # Date
-#LOCALE = ['zh_CN', 'en_US']
+LOCALE = ['zh_CN', 'en_US']
 DEFAULT_DATE = 'fs'
 DEFAULT_DATE_FORMAT = '%Y-%m-%d'
 DATE_FORMATE = {
