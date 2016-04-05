@@ -2,12 +2,12 @@ Hello World!
 ############
 
 :date: 2015-05-18
-:modified: 
+:modified:
 :author: pzhang
 :category: talk
 :tags: 博客
 :slug: hello-world
-:summary: 
+:summary:
 
 Hello World！欢迎来到pzhang's Note个人博客。
 

@@ -1,9 +1,9 @@
 getopt用法
 #######################
 
-:date: 2015-09-20
+:date:2015-09-20
 :author: pzhang
-:modified: 
+:modified:
 :category: Programming
 :tags: Linux, C
 :slug: usage-of-getopt
@@ -19,7 +19,7 @@ getopt提供了更为方便和友好的方式。
 函数\ ``getopt``\包含于系统头文件\ ``unistd.h``\中，其函数原型为:
 
 .. code-block:: C
-    
+
     int getopt(int argc, char *const argv[], const char *optstring);
     extern char *optarg;
     extern int optind, opterr, optopt;
@@ -30,13 +30,13 @@ getopt提供了更为方便和友好的方式。
 - \ ``optind``\: 再次调用\ ``getopt()``\时，下一个\ ``argv``\指针的索引
 - \ ``opterr``\: 非零时，\ ``getopt``\会向标准错误输出错误信息
 - \ ``optopt``\: 遭遇未知选项或者遗漏必须参数的选项时，用来存储该选项
-  
+
 \ ``optstring``\中内容的意义（例如\ ``getopt(argc, argv, "ab:c::")``\）
 
 - 单个字符: 表示选项,例如a，b和c
 - 单个字符后一个冒号： 表示该选项后必须跟一个参数。参数紧跟在选项后或者以空格隔开，该参数指针赋值给optarg
 - 单个字符后两个冒号： 表示该选项后可以跟一个参数也可以不跟。若跟一个参数，则该参数必须紧跟在选项后而不能以空格隔开。
-  
+
 若\ ``getopt``\遇到一个不包括于\ ``argv``\中的选项，或是一个没有参数的选项，将会返回\ ``?``\并将全局变量
 \ ``optopt``\设置为该选项字符；若选项首字符为一个冒号\ ``:``\，getopt返回\ ``:``\代替\ ``?``\来表明没有选项参数。
 
@@ -49,7 +49,7 @@ getopt 的通常用法如下：
 - \ ``getopt``\在循环中调用，当其返回-1时表明没有选项了，循环就此结束
 - \ ``switch``\语句用来对getopt返回的值进行分派
 - 利用第二个循环来处理余下的非选项参数
-  
+
 多说无益，看实例：
 
 .. code-block:: C

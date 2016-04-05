@@ -3,7 +3,7 @@ About
 
 :author: pzhang
 :date: 2015-07-12
-:modified: 
+:modified:
 :slug: about
 
 关于我

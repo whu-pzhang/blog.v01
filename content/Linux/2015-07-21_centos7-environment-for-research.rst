@@ -1,8 +1,8 @@
 用CentOS 7搭建科研环境
 ############################
 
+:date:2015-07-20
 :author: pzhang
-:date: 2015-07-20
 :modified:
 :category: Linux
 :tags: CentOS, 安装

@@ -3,7 +3,7 @@ Linux下安装GSL
 
 :author: pzhang
 :date: 2015-09-24
-:modified: 
+:modified:
 :category: Programming
 :tags: C, GSl
 :slug: install-gsl-under-linux
