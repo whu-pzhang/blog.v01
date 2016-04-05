@@ -1,8 +1,8 @@
 getopt用法
 #######################
 
-:author: pzhang
 :date: 2015-09-20
+:author: pzhang
 :modified: 
 :category: Programming
 :tags: Linux, C

@@ -59,12 +59,12 @@ Fdelmodc软件包安装及使用
 
     $ tar zxvf OpenSourceAll.tgz
 
-得到文件夹 ``OpenSource``，我选择的是将其放到 ``$HOME``目录下以便翻阅。::
+得到文件夹\ ``OpenSource``\ ，我选择的是将其放到\ ``$HOME``\ 目录下以便翻阅。::
 
     $ mv OpenSource ~/
     $ cd ~/OpenSource
 
-这时需要修改``Make_include``和``Makfile``两个文件::
+这时需要修改\ ``Make_include``\ 和\ ``Makfile``\ 两个文件::
 
     # 将ROOT目录改为自己所放的源码目录，我的如下
     ROOT=/home/pzhang/OpenSource
@@ -83,7 +83,7 @@ Fdelmodc软件包安装及使用
 使用
 ---------------
 
-软件目录下有``demos``文件夹,里面有一些例子可供参考。
+软件目录下有\ ``demos``\ 文件夹,里面有一些例子可供参考。
 
 
 
