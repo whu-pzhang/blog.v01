@@ -3,6 +3,7 @@
 
 :author: pzhang
 :date: 2015-10-16
+:modified: 2016-04-14
 :category: Programming
 :tags: 算法，C
 :slug: useful-algorithms
@@ -95,11 +96,70 @@ Python版
 最高位为0，其余位为1.这样的话，就可以通过按位与来判断了。
 
 
+产生一定范围内的随机数
+======================
+
+最显然的办法就是::
+    
+    rand() % N
+
+产生0到N-1之间的随机数，但是很多随机数生成器在数字低位上并不是随机的。更好的办法是::
+
+    (int)((double)rand() / ((double)RAND_MAX + 1) * N)
+
+看例子
+
+.. code-block:: c
+
+    #include <stdio.h>
+    #include <stdlib.h>
+    #include <time.h>
+    #define N 10
+
+    int main(int argc, char const *argv[])
+    {
+        int a[N], b[N];
+        float c[N], d[N];
+
+        srand(time(NULL));
+        for (int i=0; i<N; i++) {
+            a[i] = rand() % N;  // POOR!
+            b[i] = (int)((double)rand() / ((double)RAND_MAX + 1) * N);  // 产生0~N-1之间的整数
+            c[i] = (float)rand() / ((float)RAND_MAX / N + 1);   // 产生0~N-1之间的浮点数
+
+            printf("a[%d] = %d; b[%d] = %d; c[%d] = %f\n",
+                i, a[i], i, b[i], i, c[i]);
+        }
+        return 0;
+    }
+
+输出::
+
+    $ ./rand_test 
+    a[0] = 9; b[0] = 3; c[0] = 4.707045
+    a[1] = 4; b[1] = 5; c[1] = 1.947819
+    a[2] = 9; b[2] = 3; c[2] = 8.725301
+    a[3] = 1; b[3] = 6; c[3] = 2.441400
+    a[4] = 7; b[4] = 0; c[4] = 7.176581
+    a[5] = 1; b[5] = 2; c[5] = 5.303668
+    a[6] = 6; b[6] = 2; c[6] = 3.098936
+    a[7] = 0; b[7] = 3; c[7] = 5.129158
+    a[8] = 5; b[8] = 9; c[8] = 3.879813
+    a[9] = 3; b[9] = 6; c[9] = 7.315299
+
+总结下来，要产生[M, N]之间的随机数，可以按照以下的公式::
+
+    M + rand()/(RAND_MAX / (N-M+1) + 1)
+
+
+
 参考
 ========
 
 #. `How to tell if a Linux system is big endian or little endian? <http://serverfault.com/questions/163487/how-to-tell-if-a-linux-system-is-big-endian-or-little-endian>`_
 #. `Ten Ways to Check if an Integer Is a Power Of Two in C <http://www.exploringbinary.com/ten-ways-to-check-if-an-integer-is-a-power-of-two-in-c/>`_
+
+#. http://c-faq.com/lib/randrange.html
 
 
 
@@ -107,4 +167,5 @@ Python版
 =======
 
 - 2015-10-16： 初稿
+- 2016-04-14： 增加随机数部分
 
