@@ -77,10 +77,9 @@ MPI内部使用自己定义的数据类型，但是大体上和C语言自带的�
 
 除此之外，MPI还支持自定义的数据类型。
 
+
 例子
 ==========
-
-先来看一个利用MPI_Send和MPI_Recv进行通讯的例子
 
 .. code-block::c
 
@@ -117,3 +116,7 @@ MPI内部使用自己定义的数据类型，但是大体上和C语言自带的�
         return 0;
     }
 
+对程序编译运行：
+
+    $ mpicc -o send-recv send-recv.c -std=c99 -g -Wall
+    $ mpirun -n 4 ./send-recv
