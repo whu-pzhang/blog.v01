@@ -1,4 +1,4 @@
-MPI入门
+MPI学习之入门
 ################
 
 :date: 2016-04-15
@@ -128,6 +128,21 @@ MPI并行编程是科学计算加速的重要手段。
     S_4 = 3.54657 \qquad  E_4 = 0.886643
 
 加速比虽然会随着进程数的增加而增加，但并不是线性的。而效率则会随着进程数的增加而降低。
+
+该例子时通过MPI最基础的点对点(point-to-point)通讯方式来实现的，事实上利用MPI提供的
+
+.. code-block:: c
+
+    int MPI_Reduce(
+            void*           input_data_p    /* in */,
+            void*           out_data_p      /* out */,
+            int             count           /* in */,
+            MPI_Datatype    datatype        /* in */,
+            MPI_Op          operator        /* in */,
+            int             dest_process    /* in */,
+            MPI_Comm        comm            /* in */);
+
+函数可以更简便的实现。
 
 参考
 ============
