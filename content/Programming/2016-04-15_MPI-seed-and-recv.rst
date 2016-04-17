@@ -81,6 +81,8 @@ MPI内部使用自己定义的数据类型，但是大体上和C语言自带的�
 例子
 ==========
 
+直接来看利用MPI_Send和MPI_Recv进行通讯的例子：
+
 .. code-block::c
 
     #include <stdio.h>
@@ -105,7 +107,7 @@ MPI内部使用自己定义的数据类型，但是大体上和C语言自带的�
             MPI_Send(hello, strlen(hello)+1, MPI_CHAR, MASTER, 99,
                 MPI_COMM_WORLD);
         } else {
-            printf("Hello from proces %d of %d.\n", my_rank, comm_sz);
+            printf("Hello from process %d of %d.\n", my_rank, comm_sz);
             for (int source=1; source < comm_sz; source++) {
                 MPI_Recv(hello, MAX_STR, MPI_CHAR, source, 99,
                     MPI_COMM_WORLD, MPI_STATUS_IGNORE);
@@ -116,7 +118,7 @@ MPI内部使用自己定义的数据类型，但是大体上和C语言自带的�
         return 0;
     }
 
-对程序编译运行：
+对程序编译运行::
 
     $ mpicc -o send-recv send-recv.c -std=c99 -g -Wall
     $ mpirun -n 4 ./send-recv
