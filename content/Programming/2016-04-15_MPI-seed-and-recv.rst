@@ -85,13 +85,25 @@ MPI内部使用自己定义的数据类型，但是大体上和C语言自带的�
 
 .. code-block::c
 
-    #include <stdio.h>
-    #include <mpi.h>
+    int MPI_Send(
+            void*           msg_buff_p      /* in */,
+            int             msg_size        /* in */,
+            MPI_Datatype    msg_type        /* in */,
+            int             dest_process    /* in */,
+            int             tag             /* in */,
+            MPI_Comm        comm            /* in */);
 
-    int main(void)
-    {
-        
-    }
+
+    int MPI_Recv(
+            void*           msg_buff_p      /* out */,
+            int             buf_size        /* in */,
+            MPI_Datatype    buf_type        /* in */,
+            int             src_process     /* in */,
+            int             tag             /* in */,
+            MPI_Comm        comm            /* in */,
+            MPI_Status*     status_p        /* out */);
+
+
 
 对程序编译运行::
 
