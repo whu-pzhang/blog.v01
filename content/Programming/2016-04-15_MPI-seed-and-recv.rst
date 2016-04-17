@@ -86,36 +86,11 @@ MPI内部使用自己定义的数据类型，但是大体上和C语言自带的�
 .. code-block::c
 
     #include <stdio.h>
-    #include <string.h>
     #include <mpi.h>
-    
-    #define MASTER 0    // 主进程
-    #define MAX_STR 100
-    
+
     int main(void)
     {
-        MPI_Init(NULL, NULL);
-        int my_rank;
-        MPI_Comm_rank(MPI_COMM_WORLD, &my_rank);
-        int comm_sz;
-        MPI_Comm_size(MPI_COMM_WORLD, &comm_sz);
-    
-        char hello[MAX_STR];
-    
-        if (my_rank != MASTER) {
-            sprintf(hello, "Hello from process %d of %d.", my_rank, comm_sz);
-            MPI_Send(hello, strlen(hello)+1, MPI_CHAR, MASTER, 99,
-                MPI_COMM_WORLD);
-        } else {
-            printf("Hello from process %d of %d.\n", my_rank, comm_sz);
-            for (int source=1; source < comm_sz; source++) {
-                MPI_Recv(hello, MAX_STR, MPI_CHAR, source, 99,
-                    MPI_COMM_WORLD, MPI_STATUS_IGNORE);
-                printf("%s\n", hello);
-            }
-        }
-        MPI_Finalize();
-        return 0;
+        
     }
 
 对程序编译运行::
