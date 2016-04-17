@@ -16,28 +16,27 @@ MPI利用多个进程来计算计算，进程之间的通讯是必不可少的�
 概述
 ===========
 
-<<<<<<< HEAD
 先看MPI_Send和MPI_Recv的函数原型：
 
 .. code-block::c
 
     int MPI_Send(
-            void*           input_data_p    /* in */,
-            int             count           /* in */,
-            MPI_Datatype    datatype        /* in */,
+            void*           msg_buff_p      /* in */,
+            int             msg_size        /* in */,
+            MPI_Datatype    msg_type        /* in */,
             int             dest_process    /* in */,
             int             tag             /* in */,
             MPI_Comm        comm            /* in */);
 
 
     int MPI_Recv(
-            void*           output_data_p   /* out */,
-            int             count           /* in */,
-            MPI_Datatype    datatype        /* in */,
+            void*           msg_buff_p      /* out */,
+            int             buf_size        /* in */,
+            MPI_Datatype    buf_type        /* in */,
             int             src_process     /* in */,
             int             tag             /* in */,
             MPI_Comm        comm            /* in */,
-            MPI_Status*     status          /* in */);
+            MPI_Status*     status_p        /* out */);
 
 
 MPI基本数据类型
@@ -48,7 +47,7 @@ MPI内部使用自己定义的数据类型，但是大体上和C语言自带的�
 关系。具体见下表
 
 +------------------------+------------------------+
-| MPI datatype           | C eqivalent            |
+| MPI 数据类型           | C 数据类型             |
 +========================+========================+
 | MPI_SHORT              | short int              |
 +------------------------+------------------------+
@@ -82,8 +81,40 @@ MPI内部使用自己定义的数据类型，但是大体上和C语言自带的�
 例子
 ==========
 
-先来看一个利用MPI_Send和MPI_Recv进行
-=======
+先来看一个利用MPI_Send和MPI_Recv进行通讯的例子
 
+.. code-block::c
 
->>>>>>> a7a5761affaa2630cc3a914c59619b29a4c2d918
+    #include <stdio.h>
+    #include <string.h>
+    #include <mpi.h>
+    
+    #define MASTER 0    // 主进程
+    #define MAX_STR 100
+    
+    int main(void)
+    {
+        MPI_Init(NULL, NULL);
+        int my_rank;
+        MPI_Comm_rank(MPI_COMM_WORLD, &my_rank);
+        int comm_sz;
+        MPI_Comm_size(MPI_COMM_WORLD, &comm_sz);
+    
+        char hello[MAX_STR];
+    
+        if (my_rank != MASTER) {
+            sprintf(hello, "Hello from process %d of %d.", my_rank, comm_sz);
+            MPI_Send(hello, strlen(hello)+1, MPI_CHAR, MASTER, 99,
+                MPI_COMM_WORLD);
+        } else {
+            printf("Hello from proces %d of %d.\n", my_rank, comm_sz);
+            for (int source=1; source < comm_sz; source++) {
+                MPI_Recv(hello, MAX_STR, MPI_CHAR, source, 99,
+                    MPI_COMM_WORLD, MPI_STATUS_IGNORE);
+                printf("%s\n", hello);
+            }
+        }
+        MPI_Finalize();
+        return 0;
+    }
+
