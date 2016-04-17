@@ -122,3 +122,9 @@ MPI内部使用自己定义的数据类型，但是大体上和C语言自带的�
 
     $ mpicc -o send-recv send-recv.c -std=c99 -g -Wall
     $ mpirun -n 4 ./send-recv
+    Hello from process 0 of 4.
+    Hello from process 1 of 4.
+    Hello from process 2 of 4.
+    Hello from process 3 of 4.
+    
+
