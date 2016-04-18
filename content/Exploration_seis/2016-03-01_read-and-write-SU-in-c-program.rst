@@ -21,7 +21,7 @@ Seismic_Unix是处理勘探地震数据的好工具，SU文件格式是其内部
 Seismic_Unix程序自带有子函数库，但是我没有找到相关的程序源码。。。。
 
 但是其中自带的``segy.h``文件可以帮助我们了解SU文件的道头格式，以便自己编写读写SU格式的程序。
-关于SU文件格式可以参考 `SU/SEGY文件格式 <{filename}/Seismic_Unix/2016-02-29_SU-and-Segy-format.rst>`_ 一文。
+关于SU文件格式可以参考 `SU/SEGY文件格式 <{filename}/Exploration_seis/2016-02-29_SU-and-Segy-format.rst>`_ 一文。
 
 示例
 ===========
