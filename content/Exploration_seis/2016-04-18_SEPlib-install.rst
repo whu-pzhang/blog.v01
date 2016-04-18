@@ -80,7 +80,20 @@ SEPlib安装
     export PATH=${PATH}:$SEPHOME/bin
     export DATAPATH=$HOME/SEPData
 
-    
+测试
+=============
+
+安装完成后，在终端输入::
+
+    $ Spike n1=1000 k1=300 title="\s200 Welcome to \c2 SEP\c5 lib" \
+        | Bandpass fhi=2. phase=1 | Wiggle | Tube
+
+出现如下图形即安装成功：
+
+.. figure:: ../images/2016-04-18_SEPlib-install.png
+    :width: 600 px
+    :alt: SEPlib
+    :align: center
 
 
 参考
