@@ -1,7 +1,7 @@
 getopt用法
 #######################
 
-:date:2015-09-20
+:date: 2015-09-20
 :author: pzhang
 :modified:
 :category: Programming

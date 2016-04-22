@@ -1,7 +1,7 @@
 用CentOS 7搭建科研环境
 ############################
 
-:date:2015-07-20
+:date: 2015-07-20
 :author: pzhang
 :modified:
 :category: Linux
