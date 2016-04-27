@@ -19,29 +19,51 @@ SEPlib安装
 - flex
 - fftw3
 - lesstif (or openmotif)
+- netpbm (for vplot)
 
 安装依赖包::
 
     $ sudo yum install fftw3 fftw3-devel
     $ sudo yum install flex flex-devel
     $ sudo yum install lesstif lesstif-devel
+    $ sudo yum install netpbm netpbm-devel netpbm-progs
 
-环境变量::
 
-    export FC=ifort
-    export FFTW_FCLD="-L/usr/lib64 -lfftw3f"
-
-安装
+编译安装
 ================
 
-进入安装目录::
+SEPlib安装需要配置，可以在 ``seplib-6.5.3/docs/config_examples`` 目录下找到一些
+配置文件的例子参考。
 
-    ./configure --prefix=/opt/seplib --with-su=/home/pzhang/cwp --with-fftw
-    make
+我选择的是将以下内容保存为脚本 ``run_config.sh`` 来进行配置：
+
+.. code-block:: bash
+
+    #!/bin/bash
+    # COMPILE SCRIPT FOR INTEL
+    export FC="ifort -O3"
+    export FFTW_FCLD="-L/usr/lib64 -lfftw3f"
+    # MPI支持目前报错，暂时先注释掉
+    #export MPI_FLAGS="-I/usr/include/mpich-x86_64/"
+    #export MPI_FCLD="-L/usr/lib64/mpich/lib -lmpichf90 -lfmpich -lmpich"
+    export PERL="/usr/bin/perl"
+    export PPM_INC="-I/usr/include/netpbm"
+    export PPM_LD="-L/usr/lib64 -lnetpbm"
+
+    ./configure --prefix=/home/pzhang/SEIS/seplib --with-local --with-su=/home/pzhang/SEIS/cwp --with-fftw
+
+
+Debug
+-------------------
+
+然后在终端里输入::
+
+    $ bash run_config.sh
+    $ gmake
 
 这时会报错，
 
-.. code-block:: c
+.. code-block:: fortran
 
     super_chain_mod.f90(79): error #7061: The characteristics of dummy argument 1 of the associated actual procedure differ from the characteristics of dummy argument 1 of the dummy procedure.   [FLAT_CHAIN_ADJ_EXEC]
     call chain20( flat_chain_adj_exec,flat_chain_exec,adj, add, model, data,temp2)
@@ -65,20 +87,27 @@ SEPlib安装
     logical,intent(in)  :: adj, add
     logical             :: adj_new
 
-其他出错的地方作类型的修改。总共需要修改5处！
+其他出错的地方作类型的修改，分别位于第28，114以及141行处。总共需要修改5处！
+
+除了该处错误，在编译 ``RickMoive`` 和 ``Ricksep`` 这两个包时，也会报错。这是由于没有
+链接一些库文件导致的，需要进到相关目录中修改 ``Makefile`` 。 
+
+安装
+---------------
 
 编译全部通过之后，::
 
-    $ sudo make install
+    $ make install
 
 然后添加环境变量即可
 
 .. code-block:: bash
 
-    export SEPHOME=/opt/seplib
-    export SEPINC=$SEPHOME/include    
-    export PATH=${PATH}:$SEPHOME/bin
-    export DATAPATH=$HOME/SEPData
+    export SEPROOT=/home/pzhang/SEIS/seplib
+    export SEPINC=$SEPROOT/include    
+    export PATH=${PATH}:$SEPROOT/bin
+    export DATAPATH=$HOME/SEPData/
+    export PYTHONPATH=${SEPROOT}/lib/python
 
 测试
 =============
