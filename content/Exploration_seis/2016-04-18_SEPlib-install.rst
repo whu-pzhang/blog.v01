@@ -108,11 +108,7 @@ Debug
     export PATH=${PATH}:${SEPROOT}/bin
     export DATAPATH=$HOME/tmpData/SEPData/
     export PYTHONPATH=${SEPROOT}/lib/python
-    if [ -n "$PYTHONPATH" ]; then
-        export PYTHONPATH=${PYTHONPATH}:${SEPROOT}/lib/python
-    else
-        export PYTHONPATH=${SEPROOT}/lib/python
-    fi
+    
 
 测试
 =============
