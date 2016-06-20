@@ -50,7 +50,7 @@ SEPlib安装需要配置，可以在 ``seplib-6.5.3/docs/config_examples`` 目�
     export PPM_INC="-I/usr/include/netpbm"
     export PPM_LD="-L/usr/lib64 -lnetpbm"
 
-    ./configure --prefix=/home/pzhang/SEIS/seplib --with-local --with-su=/home/pzhang/SEIS/cwp --with-fftw
+    ./configure --prefix=/home/pzhang/seisCode/seplib --with-local --with-su=/home/pzhang/seisCode/cwp --with-fftw
 
 
 Debug
@@ -103,7 +103,7 @@ Debug
 
 .. code-block:: bash
 
-    export SEPROOT=/home/pzhang/SEIS/seplib
+    export SEPROOT=/home/pzhang/seisCode/seplib
     export SEPINC=${SEPROOT}/include    
     export PATH=${PATH}:${SEPROOT}/bin
     export DATAPATH=$HOME/tmpData/SEPData/

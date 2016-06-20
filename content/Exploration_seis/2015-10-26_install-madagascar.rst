@@ -21,6 +21,8 @@ Madagascar 是与Seismic_Unix 以及 SEPlib 差不多的一套东西。
 
     $ sudo yum install gcc libXaw-devel python
 
+值的注意的是，Madagascar只支持Python2
+
 核心及开发依赖
 ----------------
 
@@ -37,8 +39,11 @@ Madagascar 是与Seismic_Unix 以及 SEPlib 差不多的一套东西。
 
 .. code-block:: bash
 
-    $ sudo yum install libXaw-devel gifsicle libtiff-devel libjpeg-devel plplot-devel freeglut freeglut-devel netpbm netpbm-devel
+    $ sudo yum install libXaw-devel gifsicle libtiff-devel libjpeg-devel plplot-devel
+    $ sudo yum install freeglut freeglut-devel netpbm netpbm-devel
+    $ sudo yum install suitesparse suitesparse-devel
     $ sudo yum install gd gd-devel      # PNG support
+    $ sudo yum install cairo cairo-devel
     
 分别为X11 graphics, vplot2gif, TIFF, JPEG, PLplot, OpenGL和ppm支持
 
@@ -47,14 +52,16 @@ Madagascar 是与Seismic_Unix 以及 SEPlib 差不多的一套东西。
 
 .. code-block:: bash
 
-    $ sudo yum install blas blas-devel atlas atlas-devel
+    $ sudo yum install blas blas-devel atlas atlas-devel lapack lapack-devel
     $ sudo yum install mpich mpich-devel mpicc-devel openmpi openmpi-devel
     $ sudo yum install fftw fftw-devel
     
 其他
 -----------
 
-需要用到Seismic_Unix要安装才行
+- Seismic_Unix
+- CurveLab, PyCurveLab
+- 
 
 下载安装
 ============
@@ -65,7 +72,7 @@ Madagascar 是与Seismic_Unix 以及 SEPlib 差不多的一套东西。
 
     $ tar jxvf madagascar-1.7.tar.bz2
     $ cd madagascar-1.7
-    $ ./configure --preifx=/opt/madagascar-1.7
+    $ ./configure --preifx=/home/pzhang/seisCode/rsf API=f90,python,matlab
     $ make
     $ sudo make install
 
@@ -74,7 +81,7 @@ Madagascar 是与Seismic_Unix 以及 SEPlib 差不多的一套东西。
 
 .. code-block:: bash
 
-    $ echo "source /opt/madagascar-1.7/share/madagascar/etc/env.sh" >> ~/.bashrc
+    $ echo "source /home/pzhang/rsf/share/madagascar/etc/env.sh" >> ~/.bashrc
     $ source ~/.bashrc
     
 卸载
@@ -106,6 +113,15 @@ Madagascar 是与Seismic_Unix 以及 SEPlib 差不多的一套东西。
     :alt: madagascar
     :align: center
     
+
+存在的问题
+=================
+
+即使安装了blas和lapack，``configure`` 时候仍然是NO::
+
+    checking for BLAS ... no
+    checking for LAPACK ... no
+    checking for SWIG ... (cached) /usr/bin/swig
 
 
 参考
