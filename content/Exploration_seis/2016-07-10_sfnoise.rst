@@ -1,0 +1,110 @@
+sfnoise
+############################
+
+:author: pzhang
+:date: 2016-07-10
+:category: madagascar
+:tags: madagascar, program of week
+:slug: sfnoise
+
+.. contents::
+
+本文为每周一学篇之一。
+
+今天的主角是 ``sfnoise``。
+
+``sfnoise`` 是用来生成随机噪音来加入数据之中的。在我们生成理论数据体或者反演中很有
+用。电脑生成随机数的过程通常被称为“伪随机”，这是因为内部算法不是真正的随机过程。
+这个特性在重现前人计算中很有用。若要使得工作具有可重复性，在使用 ``sfnoise`` 时，需
+加上 ``seed=`` 参数来指定初始种子，若没有指定 ``seed`` 参数， 则默认使用计算机时间
+作为随机种子，这样每次运行 ``sfnoise`` 时获得的结果就不同。
+
+::
+
+    $ sfspike n1=5 mag=0 | sfnoise | sfdisfil
+    0:        -1.212       0.9078       0.9551      0.04343      -0.8236
+    $ sfspike n1=5 mag=0 | sfnoise | sfdisfil
+    0:        -0.333      -0.2896        1.422       0.2489        1.084
+    
+但是用如下命令，每次产生的序列就一样了
+
+::
+    
+    $ sfspike n1=5 mag=1 | sfnoise seed=2016 rep=y | sfdisfil
+    0:       -0.3485      -0.3108       0.7928      0.01292      -0.5301
+    
+参数 ``rep=`` 控制着产生的噪音是替代原数据还是在原数据上加上噪音。
+
+::
+
+    $ sfspike n1=5 mag=1 | sfnoise seed=2016 rep=n | sfdisfil
+    0:        0.6515       0.6892        1.793        1.013       0.4699
+
+
+``sfnoise`` 程序内部产生伪随机数的算法是 `Mersene twister <http://www.math.sci.hiroshima-u.ac.jp/~m-mat/MT/emt.html>`_。
+默认下， ``sfnoise`` 使用正态分布，可以使用参数 ``type=n`` 将序列变为均匀分布。
+
+::
+
+    NAME
+        sfnoise
+    DESCRIPTION
+        Add random noise to the data.
+    SYNOPSIS
+        sfnoise < in.rsf > out.rsf seed=time(NULL) type=y var= range= mean=0 rep=n
+    COMMENTS
+        
+        July 2011 program of the month:
+        http://ahay.org/blog/2011/07/03/program-of-the-month-sfnoise/
+        
+    PARAMETERS
+        float   mean=0  noise mean 
+        float   range=  noise range (default=1) 
+        bool    rep=n [y/n]     if y, replace data with noise 
+        int     seed=time(NULL)         random seed 
+        bool    type=y [y/n]    noise distribution, y: normal, n: uniform 
+        float   var=    noise variance
+     
+     
+例子：
+
+.. code-block:: python
+
+    from rsf.proj import *
+
+    Flow('sin', None, 'math n1=90000 label1=Sample d1=1 output="sin(0.0001*x1)"')
+    Plot('sin', 'window j1=100 | graph title=Signal')
+
+    Flow('noise', 'sin', 'noise seed=2016 var=0.01')
+    Plot('noise', 'window j1=100 | graph title=Signal+Noise')
+
+    Result('noise', 'sin noise', 'OverUnderAniso')
+
+    pars = dict(
+        default='',
+        variance='var=0.11 mean=1',     # var控制离散程度(标准差)
+        uniform='type=n',
+        range='type=n mean=0.5 range=2' # range控制噪声的变化范围
+        )
+
+    for case in pars.keys():
+        Flow(case, 'sin', 'noise rep=y seed=2016 %s' % pars[case])
+        Plot(case, 'window j1=100 | graph title="%s"' % pars[case])
+
+        hist = case+'-hist'
+        Plot(hist, case,
+            '''
+            histogram n1=61 o1=-3 d1=0.1 |
+            dd type=float | scale axis=1 |
+            graph title="Normalized Distribution" label1=Value
+            ''')
+
+        Result(case, [case, hist], 'OverUnderAniso')
+
+    End()
+    
+    
+参考
+===============
+
+- `Program of the month: sfnoise <http://ahay.org/blog/2011/07/03/program-of-the-month-sfnoise/>`_
